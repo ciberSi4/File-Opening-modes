@@ -22,13 +22,13 @@ class Shop:
         return product_line
 
     def add(self, *products : Product):
+        file = open(self.__file_name, "a")
         for product in products:
             if f"{product}" in self.get_products():
                 print(f"Продукт {product} уже есть в магазине")
             else:
-                file = open(self.__file_name, "a")
                 file.write(f"{product}\n")
-                file.close()
+        file.close()
 
 
 s1 = Shop()
